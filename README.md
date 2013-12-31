@@ -1,6 +1,6 @@
 AngularJS json rpc
 ==================
-
+This code is far from the repository from which it was forked.
 JSON-RPC-2.0 implementation for [AngularJS](http://angularjs.org/).
 
 For Usage see `test.js`.
@@ -16,11 +16,17 @@ This code is under [WTFPL](http://www.wtfpl.net/).
 
 Author
 ========
-* Idea by: [0xAX](https://twitter.com/0xAX)
-* Changed to decorator by [cfairweather](https://www.github.com/cfairweather)
+* By [cfairweather](https://www.github.com/cfairweather)
 
 Example usage:
 ====
+
+In your module, import 'angular-json-rpc':
+        
+        angular.module('test-module-jsonrpc', ['angular-json-rpc'])
+
+Then:
+
         //url, method, parameters, config
         $http.jsonrpc('url/to/jsonrpc/service', 'methodToCall', [1, 2, 3], {}).success(function(){}).error(function(){});
 For more information on callacks, see [$http](http://docs.angularjs.org/api/ng.$http).
