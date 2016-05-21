@@ -1,6 +1,6 @@
 {
   "name": "angularjs-json-rpc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/styxiak/angularjs-json-rpc",
   "description": "AngularJS JSON-RPC",
   "main": "angular-json-rpc",
@@ -9,7 +9,8 @@
     "json-rpc"
   ],
   "authors": [
-    "cfairweather"
+    "cfairweather",
+    "styxiak"
   ],
   "license": "WTFPL",
   "ignore": [

@@ -39,11 +39,22 @@ le nom de la licence.
 */
 
 angular.module('angular-json-rpc', []).config([ "$provide", function($provide) {
-    
+    var id = 0;
+    function getId() {
+        return ++id;
+    }
+
     return $provide.decorator('$http', ['$delegate', function($delegate){
             $delegate.jsonrpc = function(url, method, parameters, config){
-                var data = {"jsonrpc": "2.0", "method": method, "params": parameters, "id" : 1};
+                var data = {"jsonrpc": "2.0", "method": method, "params": parameters, "id" : getId()};
                 return $delegate.post(url, data, angular.extend({'headers':{'Content-Type': 'application/json'}}, config) );
+            };
+            $delegate.jsonrpcBatch = function(url, batch, config) {
+                var batchData = [];
+                angular.forEach(batch, function(data) {
+                    batchData.push({"jsonrpc": "2.0", "method": data.method, "params": data.params, "id" : getId()});
+                });
+                return $delegate.post(url, batchData, angular.extend({'headers':{'Content-Type': 'application/json'}}, config) );
             };
             return $delegate;
         }]);
